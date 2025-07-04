@@ -1,115 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ClickPrize - Win Exciting Prizes!</title>
-<style>
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #6b8de3, #3b5998);
-    margin: 0; padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    color: #fff;
-  }
-  .container {
-    background: #fff;
-    color: #222;
-    border-radius: 15px;
-    max-width: 400px;
-    padding: 30px 25px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-    text-align: center;
-  }
-  h1 {
-    color: #004080;
-    margin-bottom: 15px;
-  }
-  p {
-    font-size: 16px;
-    margin-bottom: 25px;
-  }
-  input[type="email"] {
-    width: 100%;
-    padding: 14px 12px;
-    font-size: 16px;
-    border-radius: 10px;
-    border: 2px solid #004080;
-    margin-bottom: 20px;
-    box-sizing: border-box;
-  }
-  button {
-    width: 100%;
-    background: #004080;
-    color: white;
-    border: none;
-    padding: 16px 0;
-    font-size: 18px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  button:hover {
-    background: #003060;
-  }
-  .note {
-    font-size: 14px;
-    color: #555;
-    margin-top: 12px;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Win a Free iPhone!</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(#f2f2f2, #ffffff);
+      text-align: center;
+      padding: 2rem;
+    }
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+    }
+    h1 {
+      color: #333;
+    }
+    p {
+      color: #555;
+    }
+    input[type="email"] {
+      width: 80%;
+      padding: 10px;
+      margin: 1rem 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    .disclaimer {
+      font-size: 0.8rem;
+      color: #999;
+      margin-top: 1rem;
+    }
+  </style>
 </head>
 <body>
-
-<div class="container">
-  <h1>Win a FREE iPhone 14 Pro!</h1>
-  <p>Enter your email below for a chance to claim your prize. Hurry, limited spots available!</p>
-  
-  <form id="leadForm">
-    <input type="email" id="email" name="email" placeholder="Enter your email" required />
-    <button type="submit">Get My Free Entry</button>
-  </form>
-  
-  <div class="note">We respect your privacy. No spam, ever.</div>
-</div>
-
-<script>
-  // Autofill email if previously saved
-  window.onload = function() {
-    const savedEmail = localStorage.getItem('userEmail');
-    if (savedEmail) {
-      document.getElementById('email').value = savedEmail;
-    }
-  };
-
-  // Form submission handler
-  document.getElementById('leadForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const emailInput = document.getElementById('email');
-    const email = emailInput.value.trim();
-
-    if(!validateEmail(email)){
-      alert('Please enter a valid email address.');
-      return;
-    }
-    
-    // Save email locally
-    localStorage.setItem('userEmail', email);
-
-    // Redirect to CPA offer link (replace below URL with your actual CPA offer URL)
-    const cpaOfferURL = 'https://your-cpa-network.com/offer?id=12345';
-    window.location.href = cpaOfferURL;
-  });
-
-  // Simple email validation
-  function validateEmail(email) {
-    const re = /^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$/;
-    return re.test(email.toLowerCase());
-  }
-</script>
+  <div class="container">
+    <h1>🎁 Win a Free iPhone!</h1>
+    <p>Enter your email below to claim your entry now. Limited Time Only!</p>
+    <form action="https://example-cpa-offer.com/track?aff_id=12345" method="POST">
+      <input type="email" name="email" placeholder="Enter your email" required />
+      <br />
+      <button type="submit">Claim Now</button>
+    </form>
+    <div class="disclaimer">
+      * No purchase necessary. Offer valid for selected users only.
+    </div>
+  </div>
 </script>
   <p>Offer expires in: <span id="timer">05:00</span></p>
 
@@ -134,4 +88,5 @@
   }, 1000);
 </script>
 </body>
+
 </html>
